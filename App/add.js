@@ -1,12 +1,16 @@
 const { connectToMyDB } = require("./app");
 
 function runthis() {
-  // call funct to connect to db
+  // connect to db
   connectToMyDB().then((result) => {
+    // my products collection aka table
     const products = result.products;
+    //actual connection to db
     const client = result.client;
+    // delete my rows to make a clean slate
     products
       .drop()
+      // when delete is done i m trying to tell it to execute code in there.
       .then(() => {
         console.log("dropped products collection(meaning runthis is working)");
 
@@ -44,7 +48,9 @@ function runthis() {
             type: "stationary",
           },
         ];
+        // map to go through each item and get new obj
         const organisedItems = itemsHardCoded.map((item) => ({
+          // task 2 products consists of XYZ
           id: Number(item.id),
           name: String(item.name),
           description: String(item.description || "").slice(0, 255),
@@ -53,10 +59,6 @@ function runthis() {
           type: item.type || "",
         }));
         return products.insertMany(organisedItems);
-      })
-      .then((res) => {
-        console.log("hardcoded items added", res.insertedCount);
-        return client.close();
       })
       .then((res) => {
         console.log("hardcoded items added", res.insertedCount);
