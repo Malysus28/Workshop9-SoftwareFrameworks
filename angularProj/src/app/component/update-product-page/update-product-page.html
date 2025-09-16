@@ -1,2 +1,80 @@
-<h2>Update Product Page</h2>
-<p>Form to edit a product will go here.</p>
+<div class="container py-3">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="h4 mb-3">Edit Product #{{ productID }}</h2>
+
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input
+            #name
+            class="form-control"
+            [value]="any.name"
+            placeholder="Name"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input
+            #desc
+            class="form-control"
+            [value]="any.description"
+            placeholder="Description"
+          />
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">Price</label>
+            <input
+              #price
+              type="number"
+              class="form-control"
+              [value]="any.price"
+              placeholder="0.00"
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Units</label>
+            <input
+              #units
+              type="number"
+              class="form-control"
+              [value]="any.units"
+              placeholder="0"
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Type</label>
+            <input
+              #type
+              class="form-control"
+              [value]="any.type"
+              placeholder="Type"
+            />
+          </div>
+        </div>
+
+        <div class="mt-4 d-flex align-items-center gap-2">
+          <button
+            type="button"
+            class="btn btn-success"
+            (click)="
+              saveupdate(
+                name.value,
+                desc.value,
+                price.value,
+                units.value,
+                type.value
+              )
+            "
+          >
+            Save
+          </button>
+          <a routerLink="/products" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

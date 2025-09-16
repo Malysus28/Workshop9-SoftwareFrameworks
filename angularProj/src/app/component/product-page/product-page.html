@@ -1,2 +1,46 @@
-<h2>Products Page</h2>
-<p>List goes here.</p>
+<div class="container" style="padding: 12px">
+  <div
+    style="
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    "
+  >
+    <h2 style="margin: 0">Products</h2>
+  </div>
+
+  <table border="1" cellpadding="8" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Units</th>
+        <th>Type</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of items">
+        <td>{{ i.id }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.price }}</td>
+        <td>{{ i.units }}</td>
+        <td>{{ i.type }}</td>
+        <td style="text-align: right; white-space: nowrap">
+          <button
+            class="btn btn-primary me-2"
+            [routerLink]="['/edit-product', i.id]"
+            type="button"
+          >
+            Edit / Update
+          </button>
+          <button class="btn btn-danger" (click)="remove(i.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
