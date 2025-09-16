@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductsAPI, Product } from '../../products-api';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-product-page',
-  imports: [],
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './add-product-page.html',
-  styleUrls: ['./add-product-page.css'],
+  styleUrl: './add-product-page.css',
 })
-export class AddProductPage {}
+export class AddProductPage implements OnInit {
+  ngOnInit() {}
+}
