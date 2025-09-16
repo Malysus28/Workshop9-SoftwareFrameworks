@@ -1,4 +1,7 @@
-<div class="container mt-5">
-  <h1 class="text-primary">Hello Bootstrap!</h1>
-  <button class="btn btn-success">Click Me</button>
+<nav style="padding: 8px; border-bottom: 1px solid #ddd">
+  <a routerLink="/products">Products</a> |
+  <a routerLink="/add-product">Add Product</a>
+</nav>
+<div style="padding: 16px">
+  <router-outlet></router-outlet>
 </div>

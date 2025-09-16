@@ -3,9 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-add-product-page',
   imports: [],
+  standalone: true,
   templateUrl: './add-product-page.html',
-  styleUrl: './add-product-page.css'
+  styleUrls: ['./add-product-page.css'],
 })
-export class AddProductPage {
-
-}
+export class AddProductPage {}
